@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresa | EcoBordado Café</title>
+
+  <link rel="stylesheet" href="Productos.css">
+  <link rel="stylesheet" href="MI CHATBOT/CHATBOT.CSS">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .empresa-portada {
+      padding: 34px;
+      margin-bottom: 32px;
+      text-align: center;
+      color: #ffffff;
+      background:
+        linear-gradient(135deg, rgba(65, 111, 90, 0.9), rgba(63, 35, 24, 0.88)),
+        url("Bordado Colombia.png") center / cover;
+      border: 4px solid #e7ae48;
+      border-radius: 22px;
+      box-shadow: 0 12px 25px rgba(79, 43, 29, 0.22);
+    }
+
+    .empresa-portada h1 {
+      color: #ffffff !important;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .empresa-portada h1::after {
+      background: #e7ae48;
+    }
+
+    .empresa-portada p {
+      max-width: 680px;
+      margin: 15px auto 0;
+      line-height: 1.7;
+    }
+
+    .bloque-empresa {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+      padding: 26px;
+      margin-bottom: 28px;
+      background: #fff5e6;
+      border: 1px solid #efd7b6;
+      border-radius: 20px;
+    }
+
+    .bloque-empresa img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border: 5px solid #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(79, 43, 29, 0.2);
+    }
+
+    .bloque-empresa h2 {
+      margin-bottom: 10px;
+      color: #70412d;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .bloque-empresa p {
+      color: #5f5148;
+      line-height: 1.75;
+    }
+
+    .bloque-empresa.vision {
+      background: #f1f7f2;
+    }
+
+    .bloque-empresa.vision img {
+      object-position: center bottom;
+    }
+
+    .valores-titulo {
+      margin: 34px 0 20px;
+      color: #3f2318;
+      text-align: center;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .valor {
+      padding: 22px;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #efd7b6;
+      border-radius: 16px;
+      box-shadow: 0 5px 13px rgba(79, 43, 29, 0.1);
+    }
+
+    .valor span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 2.4rem;
+    }
+
+    .valor h3 {
+      color: #70412d;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .valor p {
+      margin-top: 8px;
+      color: #6d5649;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .bloque-empresa {
+        grid-template-columns: 1fr;
+      }
+
+      .bloque-empresa img {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+  <main class="max-w-5xl w-full bg-white shadow-xl rounded-xl p-8">
+    <div class="flex justify-center mb-6">
+      <img
+        src="imagen.ecobordado.jpg"
+        alt="Logo de EcoBordado Café"
+        class="w-32 h-32 rounded-full shadow-lg"
+      >
+    </div>
+
+    <nav>
+      <a href="index.html" class="boton-navegacion">Inicio</a>
+      <a href="empresa.html" class="boton-navegacion">Empresa</a>
+      <a href="productos.html" class="boton-navegacion">Productos</a>
+      <a href="contacto.html" class="boton-navegacion">Contacto</a>
+    </nav>
+
+    <section class="empresa-portada">
+      <h1>Más que una cafetería</h1>
+      <p>
+        Somos un espacio que celebra el café, honra el bordado y conecta a las
+        personas con la riqueza cultural de Cartago.
+      </p>
+    </section>
+
+    <section class="bloque-empresa">
+      <img src="Bordado Colombia.png" alt="Artesanía y cultura colombiana">
+
+      <div>
+        <h2>Nuestra historia</h2>
+        <p>
+          EcoBordado Café nace de la idea de unir dos expresiones que nos
+          representan: el aroma del café colombiano y el arte paciente del
+          bordado artesanal.
+        </p>
+        <br>
+        <p>
+          Queremos que cada visita sea una oportunidad para disfrutar, aprender,
+          apoyar a artesanos locales y llevarse un recuerdo con significado.
+        </p>
+      </div>
+    </section>
+
+    <section class="bloque-empresa">
+      <img src="artesanos.jpg" alt="Artesanos locales trabajando">
+
+      <div>
+        <h2>Nuestra misión</h2>
+        <p>
+          Crear experiencias culturales y gastronómicas de calidad que fortalezcan
+          el trabajo artesanal, promuevan el turismo sostenible y aporten al
+          desarrollo de nuestra comunidad.
+        </p>
+      </div>
+    </section>
+
+    <section class="bloque-empresa vision">
+      <img src="cafeteria.jpg" alt="Interior de una cafetería">
+
+      <div>
+        <h2>Nuestra visión</h2>
+        <p>
+          Para 2030 buscamos ser un referente de turismo cultural en el Valle del
+          Cauca, reconocido por la innovación, la sostenibilidad y el apoyo al
+          talento local.
+        </p>
+      </div>
+    </section>
+
+    <h2 class="valores-titulo">Nuestros valores</h2>
+
+    <section class="grid md:grid-cols-3 gap-5">
+      <article class="valor">
+        <span>🤝</span>
+        <h3>Comunidad</h3>
+        <p>Creemos en el trabajo conjunto y en el valor de apoyar a lo local.</p>
+      </article>
+
+      <article class="valor">
+        <span>🧵</span>
+        <h3>Creatividad</h3>
+        <p>Transformamos las tradiciones artesanales en experiencias memorables.</p>
+      </article>
+
+      <article class="valor">
+        <span>🌿</span>
+        <h3>Sostenibilidad</h3>
+        <p>Promovemos decisiones responsables con las personas y el entorno.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="MI CHATBOT/chatbot.js"></script>
+</body>
+</html>

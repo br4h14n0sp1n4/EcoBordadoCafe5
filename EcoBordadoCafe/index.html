@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoBordado Café | Café, arte y cultura</title>
+
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="Productos.css">
+  <link rel="stylesheet" href="MI CHATBOT/CHATBOT.CSS">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .hero {
+      padding: 36px 28px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at top right, rgba(231, 174, 72, 0.35), transparent 30%),
+        linear-gradient(135deg, #3f2318, #70412d);
+      border: 4px solid #e7ae48;
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(79, 43, 29, 0.26);
+    }
+
+    .hero h2 {
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 22px;
+      line-height: 1.7;
+    }
+
+    .boton-hero {
+      display: inline-block;
+      padding: 12px 22px;
+      color: #3f2318;
+      text-decoration: none;
+      background: #e7ae48;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .boton-hero:hover {
+      color: #ffffff;
+      background: #c7663d;
+      transform: translateY(-3px);
+    }
+
+    .seccion-titulo {
+      margin: 34px 0 22px;
+      text-align: center;
+    }
+
+    .seccion-titulo h2 {
+      color: #3f2318;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .seccion-titulo p {
+      margin-top: 8px;
+      color: #6d5649;
+    }
+
+    .galeria-inicio {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .galeria-inicio .image-container img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .beneficio {
+      padding: 20px 16px;
+      text-align: center;
+      background: #fff7eb;
+      border: 1px solid #efd7b6;
+      border-radius: 16px;
+      box-shadow: 0 5px 12px rgba(79, 43, 29, 0.1);
+    }
+
+    .beneficio span {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 2.1rem;
+    }
+
+    .beneficio h3 {
+      color: #70412d;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .beneficio p {
+      margin-top: 6px;
+      color: #6d5649;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 650px) {
+      .galeria-inicio,
+      .beneficios {
+        grid-template-columns: 1fr;
+      }
+
+      .galeria-inicio .image-container img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+  <main class="max-w-5xl w-full bg-white shadow-xl rounded-xl p-8">
+    <div class="flex justify-center mb-6">
+      <img
+        src="imagen.ecobordado.jpg"
+        alt="Logo de EcoBordado Café"
+        class="w-32 h-32 rounded-full shadow-lg"
+      >
+    </div>
+
+    <nav>
+      <a href="index.html" class="boton-navegacion">Inicio</a>
+      <a href="empresa.html" class="boton-navegacion">Empresa</a>
+      <a href="productos.html" class="boton-navegacion">Productos</a>
+      <a href="contacto.html" class="boton-navegacion">Contacto</a>
+    </nav>
+
+    <section class="hero">
+      <h2>Un café que borda historias</h2>
+      <p>
+        En EcoBordado Café unimos el aroma del café artesanal, la creatividad
+        del bordado y la riqueza cultural de nuestra región.
+      </p>
+      <a href="productos.html" class="boton-hero">Conoce nuestros productos</a>
+    </section>
+
+    <section>
+      <div class="seccion-titulo">
+        <h2>Nuestra esencia</h2>
+        <p>El paisaje que nos inspira y el café que cultivamos con orgullo.</p>
+      </div>
+
+      <div class="galeria-inicio">
+        <div class="image-container">
+          <img
+            src="paisajes-cartago.jpg"
+            alt="Paisaje de Cartago, Valle del Cauca"
+          >
+          <div class="description">
+            <p class="text-sm font-semibold">
+              Inspirados por la belleza natural y cultural de nuestra región.
+            </p>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img
+            src="cosecha-cafe.jpg"
+            alt="Cosecha de granos de café"
+          >
+          <div class="description">
+            <p class="text-sm font-semibold">
+              Café de origen, cultivado con dedicación y pasión.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beneficios">
+      <article class="beneficio">
+        <span>☕</span>
+        <h3>Café artesanal</h3>
+        <p>Sabores preparados para acompañar momentos especiales.</p>
+      </article>
+
+      <article class="beneficio">
+        <span>🧵</span>
+        <h3>Talento local</h3>
+        <p>Apoyamos a artesanos y creadores de nuestra región.</p>
+      </article>
+
+      <article class="beneficio">
+        <span>🌿</span>
+        <h3>Experiencia sostenible</h3>
+        <p>Promovemos cultura, comunidad y productos responsables.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="MI CHATBOT/chatbot.js"></script>
+</body>
+</html>
