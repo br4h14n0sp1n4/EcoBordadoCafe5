@@ -1,0 +1,472 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Productos | EcoBordado Café</title>
+
+  <link rel="stylesheet" href="Productos.css">
+  <link rel="stylesheet" href="MI CHATBOT/CHATBOT.CSS">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Correcciones generales para evitar recortes */
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 24px;
+      box-sizing: border-box;
+      background-color: #f5f3ef;
+    }
+
+    body > main {
+      width: 100%;
+      max-width: 1024px;
+      margin: 0 auto;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      box-sizing: border-box;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    }
+
+    /* Encabezado */
+    .encabezado-productos {
+      padding: 30px;
+      margin: 0 0 30px;
+      text-align: center;
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(63, 35, 24, 0.92),
+          rgba(199, 102, 61, 0.86)
+        ),
+        url("Cafe artesanal.png") center / cover;
+
+      border: 4px solid #e7ae48;
+      border-radius: 22px;
+      box-shadow: 0 12px 25px rgba(79, 43, 29, 0.22);
+    }
+
+    .encabezado-productos h1 {
+      color: #ffffff !important;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .encabezado-productos h1::after {
+      background: #e7ae48;
+    }
+
+    .encabezado-productos p {
+      max-width: 650px;
+      margin: 15px auto 0;
+      line-height: 1.6;
+    }
+
+    /* Cuadrícula de productos */
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      align-items: stretch;
+    }
+
+    /* Tarjetas */
+    .producto-card {
+      min-width: 0;
+      height: auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border: 1px solid #ead7c4;
+      border-radius: 17px;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.09);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .producto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .producto-card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      flex-shrink: 0;
+      object-fit: cover;
+      background: #f5f0e8;
+      border-bottom: 4px solid #e7ae48;
+      color: #5b4636;
+      font-size: 14px;
+    }
+
+    .producto-info {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .etiqueta-producto {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-bottom: 12px;
+      color: #ffffff;
+      background: #416f5a;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .producto-info h2 {
+      margin: 0 0 10px;
+      color: #3f2318;
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+
+    .producto-info p {
+      margin: 0 0 10px;
+      color: #503b30;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .precio {
+      display: inline-block;
+      padding-top: 5px;
+      margin-top: auto;
+      color: #c7663d;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .producto-info .stock-producto {
+      margin: 8px 0 0;
+      color: #416f5a;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Mensaje final */
+    .frase-final {
+      clear: both;
+      padding: 24px;
+      margin: 32px 0 10px;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, #416f5a, #294d3d);
+      border: 3px solid #e7ae48;
+      border-radius: 18px;
+      box-shadow: 0 8px 18px rgba(65, 111, 90, 0.25);
+    }
+
+    .frase-final h2 {
+      margin: 0 0 8px;
+      color: #ffffff;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .frase-final p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Adaptación a tabletas */
+    @media (max-width: 900px) {
+      .productos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Adaptación a celulares */
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      body > main {
+        padding: 20px;
+      }
+
+      .productos-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .producto-card img {
+        height: 240px;
+      }
+
+      .encabezado-productos {
+        padding: 22px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <!-- LOGO -->
+    <div class="flex justify-center mb-6">
+      <img
+        src="imagen.ecobordado.jpg"
+        alt="Logo de EcoBordado Café"
+        class="w-32 h-32 rounded-full shadow-lg"
+      >
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+      <a href="index.html" class="boton-navegacion">Inicio</a>
+      <a href="empresa.html" class="boton-navegacion">Empresa</a>
+      <a href="productos.html" class="boton-navegacion">Productos</a>
+      <a href="contacto.html" class="boton-navegacion">Contacto</a>
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <section class="encabezado-productos">
+      <h1>Nuestros productos</h1>
+
+      <p>
+        Descubre nuestra selección de café, panadería, repostería
+        y productos bordados, elaborados para compartir el sabor
+        artesanal y la creatividad de nuestra comunidad.
+      </p>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="productos-grid">
+
+      <!-- PRODUCTO 1 -->
+      <article class="producto-card">
+        <img
+          src="bolsa-cafe-filtrado-artesanal.png"
+          alt="Bolsa de Café filtrado artesanal"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Café</span>
+          <h2>Bolsa de Café filtrado artesanal</h2>
+          <p>
+            Café artesanal ideal para preparar y disfrutar una taza
+            de sabor tradicional en casa.
+          </p>
+          <span class="precio">$40.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 2 -->
+      <article class="producto-card">
+        <img
+          src="caja-sobres-capuchino.png"
+          alt="Caja con sobres de Capuccino"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Bebidas</span>
+          <h2>Caja con sobres de Capuccino</h2>
+          <p>
+            Prácticos sobres de capuchino para disfrutar una bebida
+            cremosa y reconfortante en cualquier momento.
+          </p>
+          <span class="precio">$45.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 3 -->
+      <article class="producto-card">
+        <img
+          src="bolsa-infusiones-hierbas-locales.png"
+          alt="Bolsa de Infusiones de hierbas locales"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Infusiones</span>
+          <h2>Bolsa de Infusiones de hierbas locales</h2>
+          <p>
+            Infusiones de hierbas locales para disfrutar una bebida
+            caliente y un momento de tranquilidad.
+          </p>
+          <span class="precio">$18.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 4 -->
+      <article class="producto-card">
+        <img
+          src="pan-masa-madre.png"
+          alt="Pan de masa madre"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Panadería</span>
+          <h2>Pan de masa madre</h2>
+          <p>
+            Pan artesanal perfecto para acompañar una taza de café
+            o compartir durante el desayuno.
+          </p>
+          <span class="precio">$15.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 5 -->
+      <article class="producto-card">
+        <img
+          src="paquete-galletas-tematicas.png"
+          alt="Paquete de Galletas temáticas"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Repostería</span>
+          <h2>Paquete de Galletas temáticas</h2>
+          <p>
+            Galletas decoradas con diseños temáticos, ideales
+            para compartir o regalar en ocasiones especiales.
+          </p>
+          <span class="precio">$15.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 6 -->
+      <article class="producto-card">
+        <img
+          src="pastel-mediano-unidad.png"
+          alt="Pastel mediano por unidad"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Pastelería</span>
+          <h2>Pastel mediano / Unidad</h2>
+          <p>
+            Pastel de tamaño mediano para disfrutar en reuniones,
+            celebraciones o momentos especiales.
+          </p>
+          <span class="precio">$16.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 7 -->
+      <article class="producto-card">
+        <img
+          src="camisas-bordadas-unidad.png"
+          alt="Camisas bordadas por unidad"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Bordados</span>
+          <h2>Camisas bordadas / Unidad</h2>
+          <p>
+            Camisas con detalles bordados que combinan estilo,
+            creatividad y trabajo artesanal.
+          </p>
+          <span class="precio">$80.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 8 -->
+      <article class="producto-card">
+        <img
+          src="bolsos-bordados-unidad.png"
+          alt="Bolsos bordados por unidad"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Accesorios</span>
+          <h2>Bolsos bordados / Unidad</h2>
+          <p>
+            Bolsos con diseños bordados que combinan funcionalidad,
+            identidad y diseño artesanal.
+          </p>
+          <span class="precio">$50.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 9 -->
+      <article class="producto-card">
+        <img
+          src="manteles-tematicos-bordados-unidad.png"
+          alt="Manteles temáticos bordados por unidad"
+          loading="lazy"
+        >
+
+        <div class="producto-info">
+          <span class="etiqueta-producto">Hogar</span>
+          <h2>Manteles temáticos bordados / Unidad</h2>
+          <p>
+            Manteles decorativos con bordados temáticos para
+            darle un toque especial a tu mesa.
+          </p>
+          <span class="precio">$120.000 COP</span>
+          <p class="stock-producto">Disponibles: 50 unidades</p>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- MENSAJE FINAL -->
+    <section class="frase-final">
+      <h2>¿Buscas un regalo con identidad?</h2>
+
+      <p>
+        Descubre nuestros productos y encuentra el equilibrio
+        entre el sabor del café, la tradición artesanal
+        y la magia del bordado.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- CHATBOT EXISTENTE -->
+  <script src="MI CHATBOT/chatbot.js"></script>
+
+</body>
+</html>
+```
